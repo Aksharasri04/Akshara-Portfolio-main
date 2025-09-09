@@ -21,8 +21,227 @@
     <link rel="stylesheet" href="assets/css/plugins/feature.css">
     <!-- Style css -->
     <link rel="stylesheet" href="assets/css/style.css">
-</head>
+<style>
+  /* ===== PERMANENT WHITE THEME (kills dark + hover) ===== */
 
+  /* Page + text */
+  html, body { background:#fff !important; color:#000 !important; }
+  h1,h2,h3,h4,h5,h6,p,span,a,li,small,strong,em { color:#000 !important; }
+
+  /* --- Project/Service cards --- */
+  .rn-service,
+  .rn-service .inner,
+  .rn-service:hover .inner,
+  .rn-service:focus .inner,
+  .rn-service:active .inner {
+    background:#fff !important;
+    color:#000 !important;
+    box-shadow:0 4px 12px rgba(0,0,0,.1) !important;
+  }
+  /* remove any dark overlays on cards */
+  .rn-service .inner::before,
+  .rn-service .inner::after,
+  .rn-service::before,
+  .rn-service::after { background:none !important; box-shadow:none !important; }
+
+  /* --- Resume/Education/Experience items --- */
+  .resume-single-list,
+  .resume-single-list .inner,
+  .resume-single-list:hover .inner,
+  .resume-single-list:focus .inner,
+  .resume-single-list:active .inner {
+    background:#fff !important;
+    color:#000 !important;
+    box-shadow:0 4px 12px rgba(0,0,0,.1) !important;
+  }
+  .resume-single-list::before,
+  .resume-single-list::after { background:none !important; }
+
+  /* containers around those lists */
+  .personal-experience-inner,
+  .experience-list { background:#fff !important; }
+
+  /* --- Tabs in Resume section --- */
+  .rn-nav-list .nav-link,
+  .rn-nav-list .nav-link:hover,
+  .rn-nav-list .nav-link:focus,
+  .rn-nav-list .nav-link.active {
+    background:#fff !important;
+    color:#000 !important;
+    border:1px solid #ccc !important;
+  }
+
+  /* --- Contact section boxes & inputs --- */
+  .contact-about-area,
+  .contact-form-wrapper,
+  .contact__form { background:#fff !important; color:#000 !important; }
+  .contact__input {
+    background:#fff !important; color:#000 !important;
+    border:1px solid #ccc !important;
+  }
+  .contact__input::placeholder { color:#666 !important; }
+
+  /* --- Kill any global dark section backgrounds/overlays --- */
+  .rn-slider-area, .rn-service-area, .rn-resume-area, .rn-contact-area,
+  .rn-section-gap, .section-separator,
+  .rn-slider-area::before, .rn-service-area::before, .rn-resume-area::before,
+  .rn-contact-area::before, .rn-section-gap::before { background:#fff !important; }
+
+  /* Ensure links remain visible on white */
+  a:hover, a:focus { color:#000 !important; }
+
+  /* Optional: keep your pink/red accent icons visible */
+  .rn-service .icon i { color:#e91e63 !important; }
+
+
+    /* Keep the GPA/score badge white ALWAYS */
+  .rn-resume-area .resume-single-list .date-of-time span,
+  .rn-resume-area .resume-single-list .date-of-time span:hover,
+  .rn-resume-area .resume-single-list .date-of-time span:focus,
+  .rn-resume-area .resume-single-list .date-of-time span:active,
+  .rn-resume-area .resume-single-list:hover .date-of-time span,
+  .rn-resume-area .resume-single-list:focus .date-of-time span,
+  .rn-resume-area .resume-single-list:active .date-of-time span {
+    background: #ffffff !important;   /* always white */
+    color: #000000 !important;         /* black text */
+    border: 1px solid #ccc !important; /* subtle border */
+    box-shadow: none !important;       /* remove dark shadow */
+    filter: none !important;
+  }
+
+  /* Some themes draw the pill with pseudo-elements — kill them */
+  .rn-resume-area .resume-single-list .date-of-time span::before,
+  .rn-resume-area .resume-single-list .date-of-time span::after,
+  .rn-resume-area .resume-single-list:hover .date-of-time span::before,
+  .rn-resume-area .resume-single-list:hover .date-of-time span::after {
+    content: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  /* Kill extra space under intro description */
+  .rn-slider-area .description {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1.5; /* keep text readable */
+  }
+/* Remove huge white space above the Projects section */
+.rn-service-area,
+.rn-section-gap {
+  padding-top: 20px !important;   /* reduce top padding */
+  margin-top: 0 !important;
+}
+
+/* Remove extra margin on project row */
+.rn-service-area .row.row--25 {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ===== One clean box per project card ===== */
+
+/* Make the OUTER .rn-service the only visible box */
+.rn-service{
+  background:#fff !important;
+  border:1.5px solid #000 !important;   /* single black border */
+  border-radius:12px !important;
+  box-shadow:none !important;
+  padding:20px !important;              /* move padding here */
+  position:relative;
+}
+
+/* Kill the “inner” card visuals completely */
+.rn-service .inner{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  padding:0 !important;
+}
+
+/* Remove any theme pseudo-element frames/overlays */
+.rn-service::before,
+.rn-service::after,
+.rn-service .inner::before,
+.rn-service .inner::after{
+  content:none !important;
+  background:none !important;
+  box-shadow:none !important;
+}
+
+/* Tidy icon area (optional) */
+.rn-service .icon,
+.rn-service .icon-square{
+  margin-bottom:12px;
+}
+
+/* If your theme puts a hover shadow, disable it */
+.rn-service:hover,
+.rn-service:focus{
+  box-shadow:none !important;
+}
+
+/* Keep overlay link working but invisible */
+.rn-service > .over-link{
+  position:absolute; inset:0; z-index:1;
+}
+.rn-service .content{ position:relative; z-index:2; }
+
+
+/* Force ALL icons (normal + square) to red */
+.rn-service .icon i,
+.rn-service .icon-square i,
+.icon-square {
+  color: #e91e63 !important;
+  border-color: #e91e63 !important; /* red border for square */
+
+}
+
+
+/* ===== One clean box per resume/education/experience card ===== */
+
+/* Make only one visible box */
+.resume-single-list {
+  background:#fff !important;
+  border:1.5px solid #000 !important;   /* single black border */
+  border-radius:12px !important;
+  box-shadow:none !important;
+  padding:20px !important;
+  position:relative;
+}
+
+/* Kill the inner visuals */
+.resume-single-list .inner {
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  padding:0 !important;
+}
+
+/* Remove any pseudo-element overlays */
+.resume-single-list::before,
+.resume-single-list::after,
+.resume-single-list .inner::before,
+.resume-single-list .inner::after {
+  content:none !important;
+  background:none !important;
+  box-shadow:none !important;
+}
+
+
+/* Remove unwanted line under resume/education/experience cards */
+.resume-single-list .inner {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+.resume-single-list .inner .heading {
+  border-bottom: none !important;
+}
+
+
+</style>
+
+
+
+</head>
 <body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
 
     <!-- Start Header -->
@@ -37,6 +256,7 @@
                         </a>
                     </div>
                 </div>
+                
             </div>
             <!-- End Header Left -->
             <!-- Start Header Center -->
@@ -52,6 +272,38 @@
             
                             <li class="nav-item"><a class="nav-link smoth-animation" href="#contacts">Contact</a></li>
                         </ul>
+<style>
+  /* Make nav menu items extra bold and larger */
+  .primary-menu .nav-link {
+    font-weight: 900 !important;       /* max bold */
+    font-size: 20px !important;        /* increase size */
+    -webkit-text-stroke: 0.3px black;  /* subtle outline for extra boldness */
+    letter-spacing: 0.5px;             /* a little spacing for clarity */
+  }
+ 
+
+  /* ✅ Header background and nav fix */
+  .rn-header,
+  .header-wrapper,
+  .haeder-default,
+  .black-logo-version {
+    background-color: #ffffff !important;
+  }
+
+  .primary-menu .nav-link {
+    color: #000000 !important;
+    font-weight: 900 !important;
+    font-size: 20px !important;
+    -webkit-text-stroke: 0.3px black;
+  }
+
+  .primary-menu .nav-link.active {
+    color: #000000 !important;
+    border-bottom: 2px solid #000000;
+  }
+
+</style>
+
                         <!-- End Mainmanu Nav -->
                     </nav>
                     <!-- Start Header Right  -->
@@ -122,7 +374,7 @@
             <div class="slide slider-style-1">
                 <div class="container">
                     <div class="row row--30 align-items-center">
-                        <div class="order-2 order-lg-1 col-lg-7 mt_md--50 mt_sm--50 mt_lg--30">
+                        <div class="order-2 order-lg-1 col-lg-7">
                             <div class="content">
                                 <div class="inner">
                                   
@@ -143,13 +395,41 @@
                                     </h1>
 
                                     <div>
-                                        <p class="description">With a passion of uncovering hidden insights from data, I'm a dedicated my skills to drive impactful solutions. My academic background in AI and Machine Learning, combined with hands-on experience and project management, equips me to excel in this field. From building recommendation systems to predicting air pollution levels, my projects have solved real-world problems. I'm eager to contribute my skills to a dynamic and collaborative environment, where I can continue to learn, grow, and make a meaningful impact.
-                                             My goal is to leverage data science to create innovative solutions that benefit society and drive business success.</p>
+                                        <p class="description">I am a Data Science enthusiast and AI practitioner who loves turning data into stories that drive impact. My passion lies in blending creativity with logic to design intelligent solutions that inspire innovation and enable smarter decisions.”</p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                    <div class="col-lg-10 col-xl-10">
                                         <div class="social-share-inner-left">
+<style>
+  /* Kill extra space under intro description */
+  .rn-slider-area .description {
+    margin-bottom: -20 !important;
+    padding-bottom: 0 !important;
+    line-height: 1.5; /* keep text readable */
+  }
+
+  /* Force the row that contains social buttons to have no spacing */
+  .rn-slider-area .row {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* The column holding the social links */
+  .social-share-inner-left {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* The actual grid of buttons */
+  .social-grid {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+</style>
+
                                           
 
 <ul class="social-grid">
@@ -243,7 +523,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12 mt_mobile--30">
+                                    <div class="order-2 order-lg-1 col-lg-7">
                                  
                                     </div>
                                 </div>
@@ -265,8 +545,9 @@
         </div>
         <!-- End Slider Area -->
 
+
         <!-- Start Service Area -->
-        <div class="rn-service-area rn-section-gap section-separator" id="features">
+        <div class="rn-service-area rn-section-gap" id="features">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -276,16 +557,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="row row--25 mt_md--10 mt_sm--10">
+                <div class="row mt--50 mt_md--40 mt_sm--40 mt-contact-sm">
 
                     <!-- Start Single Service -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-service">
-                            <div class="inner">
-                                <div class="icon">
-                                    <i data-feather="layout"></i>
+                     
+                      <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
+  <div class="rn-service">
+    <div class="inner">
+      <div class="icon-square" style="width:70px; height:70px; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-bottom:15px;">
+        <i data-feather="layout" style="width:40px; height:40px; color:#e91e63; stroke-width:1.5;"></i>
                                 </div>
-                                <div class="content"style="text-align:justify;">
+
+                         <div class="content"style="text-align:justify;">
                                     <h4 class="title"><a href="#">Air Pollution Detection and Prediction</a></h4>
                                     <p class="description">• Created a PyTorch-based LSTM model to forecast air pollution levels (PM2.5, NO2, CO) with metrics, utilizing
                                         meteorological factors and time-series data for improved accuracy. Applied data preprocessing techniques, including feature scaling, time series decomposition, and handling missing values, to
@@ -350,7 +633,7 @@
 
                                 </div>
                             </div>
-                            <a class="over-link" href="#"></a>
+                        
                         </div>
                     </div>
                     <!-- End SIngle Service -->
@@ -368,7 +651,7 @@
                                     <!-- <a class="read-more-button" href="#"><i class="feather-arrow-right"></i></a> -->
                                 </div>
                             </div>
-                            <a class="over-link" href="#"></a>
+                            
                         </div>
                     </div>
                     <!-- End SIngle Service -->
@@ -432,11 +715,12 @@
             </div>
         </div>
         <!-- End Service Area  -->
+        
 
        
 
         <!-- Start Resume Area -->
-        <div class="rn-resume-area rn-section-gap section-separator" id="resume">
+        <div class="rn-resume-area rn-section-gap " id="resume">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -714,73 +998,26 @@
                                         <div class="col-lg-6 col-md-12 col-12">
                                             <div class="content">
                                                 
-                                                <h4 class="maintitle">Education Quality</h4>
+                                                <h4 class="maintitle">Experience</h4>
                                                 <div class="experience-list">
-
                                                     <!-- Start Single List  -->
                                                     <div class="resume-single-list">
                                                         <div class="inner">
                                                             <div class="heading">
                                                                 <div class="title">
-                                                                    <h4>Bachelor of Technology in Artificial Intelligence and Machine Learning</h4>
-                                                                    <span>Anna University (Rajalakshmi Engineering College) (2020 - 2024)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>8.32/10</span>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>Masters in Data Science </h4>
-                                                                    <span>University of Colorado Boulder (2024 - 2026)</span>
+                                                                    <h4>AI ENGINEER</h4>
+                                                                    <span>INSPIRA, INC </span>
                                                                 </div>
                                                                 <div class="date-of-time">
                                                                    
                                                                 </div>
                                                             </div>
+                                                            <p class="description" style="text-align: justify;">• Initiated and implemented a Retrieval-Augmented Generation (RAG) pipeline using FAISS Vector Search,LLMs and MySQL, improving retrieval accuracy by 30% in real-time. 
+                                                                <br>• Programmed a scalable dual-response AI system and reduced query time by 40% for semantic search. Collaborated with backend and leadership to deliver a production-ready AI integration plan, accelerating development by 25%.</p>
+    
                                                         </div>
                                                     </div>
-                                                    <!-- End Single List  -->
-
-                                                    <!-- Start Single List  -->
-                                                    <!-- <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>Tips For Personal Portfolio</h4>
-                                                                    <span>University of Studies (1997 - 2001)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>4.80/5</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description"> If you are going to use a passage.
-                                                                Ut tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div> -->
-                                                    <!-- End Single List  -->
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- End Skill List Area  -->
-
-                                        <!-- Start Skill List Area 2nd  -->
-                                        <div class="col-lg-6 col-md-12 col-12 mt_md--60 mt_sm--60">
-                                            <div class="content">
-                                                
-                                                <h4 class="maintitle">Experience</h4>
-                                                <div class="experience-list">
+                                                    <!-- End Single List  -->                                                    
 
                                                     <!-- Start Single List  -->
                                                     <div class="resume-single-list">
@@ -794,7 +1031,9 @@
                                                                    
                                                                 </div>
                                                             </div>
-                                                            <p class="description">Constructed an recommendation system that analyzed user interactions with over 300,000 product and suggest relevant products based on estimated ratings and user ratings. Designed and executed advanced visualizations for model performance metrics, including ROC curves and feature importance plots; this initiative facilitated decision-making and resulting in a improvement in model accuracy.</p>
+                                                            <p class="description" style="text-align: justify;">• Built a recommendation system that provides item by analyzing global, country-wise, and month-wise trends with over 300,000 product and suggest relevant products based on estimated ratings and user ratings. 
+                                                                <br>• Utilized the Apriori algorithm for association rule mining and the SVD algorithm for collaborative filtering, executed advanced visualizations such as ROC curves to evaluate model performance. This achieves a 20% improvement in model accuracy.</p>
+    
                                                         </div>
                                                     </div>
                                                     <!-- End Single List  -->
@@ -811,7 +1050,8 @@
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <p class="description">Implemented machine learning algorithms (e.g., linear regression, decision trees, random forest) using Python libraries (Scikit-learn, Pandas, NumPy) to build predictive models for Fraud Detection. Used exploratory data analysis (EDA) to extract meaningful insights, visualized data using Matplotlib and Seaborn, and to improve model performance.</p>
+                                                            <p class="description" style="text-align: justify;">• Designed a machine learning pipeline to analyze customer attrition patterns in the telecom sector, using logistic regression and k-means clustering to identify high-risk customer segments. Applied feature engineering techniques and optimized clusters using the elbow method.
+                                                                <br>• Evaluated multiple classification models, selecting the best-performing one with 96% accuracy that reduced churn rates, increased profitability, and enhanced customer loyalty.</p>
                                                         </div>
                                                     </div>
                                                     <!-- End Single List  -->
@@ -833,7 +1073,7 @@
         <!-- Start News Area -->
 
         <!-- Start Contact section -->
-        <div class="rn-contact-area rn-section-gap section-separator" id="contacts">
+        <div class="rn-contact-area rn-section-gap " id="contacts">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
